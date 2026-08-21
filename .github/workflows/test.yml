@@ -1,9 +1,9 @@
 name: Add Issue Label
 on:
-    issue:
+    issues:
         type: [opened]
 jobs:
-    Label Add:
+    label-add:
         runs-on: ubuntu-latest
         permissions:
             issues: write
