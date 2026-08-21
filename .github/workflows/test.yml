@@ -1,6 +1,6 @@
 name: Add Issue Label
 on:
-    issue:
+    issues:
         type: [opened]
 jobs:
     Label Add:
