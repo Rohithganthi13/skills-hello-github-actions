@@ -1,0 +1,19 @@
+name: Add Issue Label
+on:
+    issue:
+        type: [opened]
+jobs:
+    Label Add:
+        runs-on: ubuntu-latest
+        permissions:
+            issues: write
+            contents: read
+        steps:
+            - name: checkout repository
+              uses: actions/checkout@v6
+            - name: Add documentation label
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                ISSUE_NUMBER: ${{ github.event.issue.number }}
+                LABEL: "documentation"
+              run: gh issue edit "$ISSUE_NUMBER" --add-label "$LABEL"
